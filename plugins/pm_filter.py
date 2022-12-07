@@ -681,18 +681,7 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-    btn.insert(0, 
-        [
-            InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-        ]
-    )
-    btn.insert(1,
-        [
-            InlineKeyboardButton(f'📂 Files: {total_results}', 'dupe'),
-            InlineKeyboardButton(f'🎁 Tips', 'tips'),
-            InlineKeyboardButton(f'📮 Info', 'info')
-        ]
-    )    
+       
 
     if offset != "":
         key = f"{message.chat.id}-{message.id}"

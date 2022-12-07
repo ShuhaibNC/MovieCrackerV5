@@ -68,7 +68,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"{get_size(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -86,18 +86,6 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
-    btn.insert(0, 
-        [
-            InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
-        ]
-    )
-    btn.insert(1,
-        [
-            InlineKeyboardButton(f'📂 𝖥𝗂𝗅𝖾𝗌: {len(files)}', 'dupe'),
-            InlineKeyboardButton(f'🎁 𝖳𝗂𝗉𝗌', 'tips'),
-            InlineKeyboardButton(f'📮 𝖨𝗇𝖿𝗈', 'info')
-        ]
-    )
 
     if 0 < offset <= 10:
         off_set = 0
@@ -675,7 +663,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"{get_size(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -684,11 +672,11 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}{file.file_name}",
+                    text=f"{get_size(file.file_size)} {file.file_name}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}{file.file_name}",
+                    text=f"{get_size(file.file_size)} {file.file_name}",
                     callback_data=f'{pre}#{file.file_id}',
                 ),
             ]
